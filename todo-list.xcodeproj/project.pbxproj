@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		EF64B2D22ADB056A00DD3B3C /* todo_listApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2D12ADB056A00DD3B3C /* todo_listApp.swift */; };
-		EF64B2D42ADB056A00DD3B3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2D32ADB056A00DD3B3C /* ContentView.swift */; };
 		EF64B2D62ADB056B00DD3B3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF64B2D52ADB056B00DD3B3C /* Assets.xcassets */; };
 		EF64B2D92ADB056B00DD3B3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF64B2D82ADB056B00DD3B3C /* Preview Assets.xcassets */; };
+		EF64B2E12ADB05BC00DD3B3C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E02ADB05BC00DD3B3C /* ListView.swift */; };
+		EF64B2E32ADB071900DD3B3C /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E22ADB071900DD3B3C /* ListRowView.swift */; };
+		EF64B2E52ADB0D8900DD3B3C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E42ADB0D8900DD3B3C /* AddView.swift */; };
+		EF64B2E82ADB160800DD3B3C /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E72ADB160800DD3B3C /* ItemModel.swift */; };
+		EF64B2EB2ADB1A9F00DD3B3C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EF64B2CE2ADB056A00DD3B3C /* todo-list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "todo-list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF64B2D12ADB056A00DD3B3C /* todo_listApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo_listApp.swift; sourceTree = "<group>"; };
-		EF64B2D32ADB056A00DD3B3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EF64B2D52ADB056B00DD3B3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF64B2D82ADB056B00DD3B3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EF64B2E02ADB05BC00DD3B3C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		EF64B2E22ADB071900DD3B3C /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		EF64B2E42ADB0D8900DD3B3C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		EF64B2E72ADB160800DD3B3C /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +59,10 @@
 		EF64B2D02ADB056A00DD3B3C /* todo-list */ = {
 			isa = PBXGroup;
 			children = (
+				EF64B2E92ADB1A7A00DD3B3C /* ViewModel */,
+				EF64B2E62ADB15EF00DD3B3C /* Models */,
+				EF64B2DF2ADB05AF00DD3B3C /* Views */,
 				EF64B2D12ADB056A00DD3B3C /* todo_listApp.swift */,
-				EF64B2D32ADB056A00DD3B3C /* ContentView.swift */,
 				EF64B2D52ADB056B00DD3B3C /* Assets.xcassets */,
 				EF64B2D72ADB056B00DD3B3C /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				EF64B2D82ADB056B00DD3B3C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF64B2DF2ADB05AF00DD3B3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF64B2E02ADB05BC00DD3B3C /* ListView.swift */,
+				EF64B2E22ADB071900DD3B3C /* ListRowView.swift */,
+				EF64B2E42ADB0D8900DD3B3C /* AddView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EF64B2E62ADB15EF00DD3B3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF64B2E72ADB160800DD3B3C /* ItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EF64B2E92ADB1A7A00DD3B3C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF64B2D42ADB056A00DD3B3C /* ContentView.swift in Sources */,
+				EF64B2E82ADB160800DD3B3C /* ItemModel.swift in Sources */,
+				EF64B2E52ADB0D8900DD3B3C /* AddView.swift in Sources */,
+				EF64B2EB2ADB1A9F00DD3B3C /* ListViewModel.swift in Sources */,
 				EF64B2D22ADB056A00DD3B3C /* todo_listApp.swift in Sources */,
+				EF64B2E12ADB05BC00DD3B3C /* ListView.swift in Sources */,
+				EF64B2E32ADB071900DD3B3C /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
