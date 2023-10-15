@@ -14,7 +14,7 @@ struct AddView: View {
                 TextField("Type something here...", text: $textFieldText)
                     .padding(.horizontal)
                     .frame(height: 55)
-                    .background(Color(red: 0.95, green: 0.96, blue: 1.00))
+                    .background(Color(UIColor.secondarySystemBackground))
                     .clipShape(.buttonBorder)
                 
                 Button(action: saveButtonPressed, label: {
@@ -41,7 +41,7 @@ struct AddView: View {
     
     func textIsAppropriate() -> Bool{
         if textFieldText.count < 3 {
-            alertTitle = "Your to-do needs to be at least than 3 characters long"
+            alertTitle = "Your to-do needs to be at least 3 characters long."
             showAlert.toggle()
             return false
         }
