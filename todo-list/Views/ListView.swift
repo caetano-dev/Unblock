@@ -28,8 +28,12 @@ struct ListView: View {
         .listStyle(PlainListStyle())
         .navigationTitle("Todo List")
         .toolbar{
+            ToolbarItem(placement: .topBarLeading){
                 EditButton()
-            NavigationLink("Add", destination: AddView())
+            }
+            ToolbarItem(placement: .topBarTrailing){
+                NavigationLink("Add", destination: AddView())
+            }
         }
     }
 }
