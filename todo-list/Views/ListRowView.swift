@@ -11,22 +11,18 @@ struct ListRowView: View {
     }
     
     var body: some View {
-        
-        HStack{
-            
+        HStack(alignment:.top){
             Image(systemName: item.isCompleted ? "checkmark.square.fill" : "square")
                 .scaleEffect(1.5)
                 .padding()
                 .foregroundStyle(item.isCompleted ? .green : .red)
+            
             VStack(alignment: .leading){
                 Text(item.title)
                     .font(.title)
+                
                 Text(item.description)
                     .font(.subheadline)
-            }
-            Spacer()
-            
-            VStack(alignment: .leading){
                 HStack{
                     Image(systemName: "calendar")
                         .font(.subheadline)
@@ -34,19 +30,17 @@ struct ListRowView: View {
                         .font(.subheadline)
                 }
                 HStack{
-                Image(systemName: "stopwatch")
-                    .font(.subheadline)
+                    Image(systemName: "stopwatch")
+                        .font(.subheadline)
                     
                     Text("\(item.durationInMinutes) mins")
                         .font(.subheadline)
                     
                 }
             }
-                
-            Spacer()
         }
-        .font(.title2)
-        .padding(.vertical, 8)
+        
+        
     }
 }
 
@@ -54,8 +48,8 @@ struct ListRowView: View {
 struct ListRowView_Previews: PreviewProvider{
     static var previews: some View{
         Group{
-        ListRowView(item: mockItem)
-        }
+            ListRowView(item: mockItem)
+        }.previewLayout(.sizeThatFits)
     }
 }
 
