@@ -17,6 +17,7 @@
 		EF64B2E52ADB0D8900DD3B3C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E42ADB0D8900DD3B3C /* AddView.swift */; };
 		EF64B2E82ADB160800DD3B3C /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E72ADB160800DD3B3C /* ItemModel.swift */; };
 		EF64B2EB2ADB1A9F00DD3B3C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */; };
+		EFE845CB2ADDE78900C0EA85 /* ListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE845CA2ADDE78900C0EA85 /* ListRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		EF64B2E42ADB0D8900DD3B3C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		EF64B2E72ADB160800DD3B3C /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		EFE845CA2ADDE78900C0EA85 /* ListRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */,
+				EFE845CA2ADDE78900C0EA85 /* ListRowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF64B2E82ADB160800DD3B3C /* ItemModel.swift in Sources */,
+				EFE845CB2ADDE78900C0EA85 /* ListRowViewModel.swift in Sources */,
 				EF64B2E52ADB0D8900DD3B3C /* AddView.swift in Sources */,
 				EF64B2EB2ADB1A9F00DD3B3C /* ListViewModel.swift in Sources */,
 				EF64B2D22ADB056A00DD3B3C /* todo_listApp.swift in Sources */,
