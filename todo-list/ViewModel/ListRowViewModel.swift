@@ -1,7 +1,7 @@
 import Foundation
 
 class ListRowViewModel: ObservableObject {
-    @Published var item: ItemModel
+    private let item: ItemModel
 
     init(item: ItemModel) {
         self.item = item
@@ -9,8 +9,7 @@ class ListRowViewModel: ObservableObject {
 
     func formattedStartDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE h:mm a" // Adjust the date format as needed
+        dateFormatter.dateFormat = "MMM dd, yyyy"
         return dateFormatter.string(from: item.startDate)
     }
 }
-

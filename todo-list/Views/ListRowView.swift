@@ -4,7 +4,11 @@ import Foundation
 struct ListRowView: View {
     
     let item: ItemModel
-    @EnvironmentObject var listRowViewModel: ListRowViewModel
+    let listRowViewModel: ListRowViewModel
+    init(item: ItemModel){
+        self.item = item
+        listRowViewModel = ListRowViewModel(item: item)
+    }
     
     var body: some View {
         
@@ -21,14 +25,22 @@ struct ListRowView: View {
                     .font(.subheadline)
             }
             Spacer()
-            HStack{
-                Text("\(item.startDate)")
-                    .font(.subheadline)
+            
+            VStack(alignment: .leading){
+                HStack{
+                    Image(systemName: "calendar")
+                        .font(.subheadline)
+                    Text(listRowViewModel.formattedStartDate())
+                        .font(.subheadline)
+                }
+                HStack{
                 Image(systemName: "stopwatch")
                     .font(.subheadline)
-                Text("\(item.durationInMinutes) mins")
-                    .font(.subheadline)
-               
+                    
+                    Text("\(item.durationInMinutes) mins")
+                        .font(.subheadline)
+                    
+                }
             }
                 
             Spacer()
@@ -40,13 +52,13 @@ struct ListRowView: View {
 
 
 struct ListRowView_Previews: PreviewProvider{
-    
-
     static var previews: some View{
         Group{
         ListRowView(item: mockItem)
         }
     }
 }
+
+
 
 
