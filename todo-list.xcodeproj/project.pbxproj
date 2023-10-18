@@ -17,6 +17,9 @@
 		EF64B2E52ADB0D8900DD3B3C /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E42ADB0D8900DD3B3C /* AddView.swift */; };
 		EF64B2E82ADB160800DD3B3C /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2E72ADB160800DD3B3C /* ItemModel.swift */; };
 		EF64B2EB2ADB1A9F00DD3B3C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */; };
+		EF6942572AE0788200F2C5A3 /* GardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6942562AE0788200F2C5A3 /* GardenView.swift */; };
+		EF6942592AE0808D00F2C5A3 /* PlantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6942582AE0808D00F2C5A3 /* PlantModel.swift */; };
+		EF69425B2AE0842100F2C5A3 /* PlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF69425A2AE0842100F2C5A3 /* PlantView.swift */; };
 		EFE845CB2ADDE78900C0EA85 /* ListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE845CA2ADDE78900C0EA85 /* ListRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,9 @@
 		EF64B2E42ADB0D8900DD3B3C /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		EF64B2E72ADB160800DD3B3C /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		EF64B2EA2ADB1A9F00DD3B3C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		EF6942562AE0788200F2C5A3 /* GardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenView.swift; sourceTree = "<group>"; };
+		EF6942582AE0808D00F2C5A3 /* PlantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantModel.swift; sourceTree = "<group>"; };
+		EF69425A2AE0842100F2C5A3 /* PlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantView.swift; sourceTree = "<group>"; };
 		EFE845CA2ADDE78900C0EA85 /* ListRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +97,8 @@
 				EF64B2E42ADB0D8900DD3B3C /* AddView.swift */,
 				EF5C35002ADC006E005D6CEE /* NoItemsView.swift */,
 				EF5BC7592ADC0E25006C422D /* Launch Screen.storyboard */,
+				EF6942562AE0788200F2C5A3 /* GardenView.swift */,
+				EF69425A2AE0842100F2C5A3 /* PlantView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				EF64B2E72ADB160800DD3B3C /* ItemModel.swift */,
+				EF6942582AE0808D00F2C5A3 /* PlantModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,9 +192,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF69425B2AE0842100F2C5A3 /* PlantView.swift in Sources */,
 				EF64B2E82ADB160800DD3B3C /* ItemModel.swift in Sources */,
 				EFE845CB2ADDE78900C0EA85 /* ListRowViewModel.swift in Sources */,
 				EF64B2E52ADB0D8900DD3B3C /* AddView.swift in Sources */,
+				EF6942592AE0808D00F2C5A3 /* PlantModel.swift in Sources */,
+				EF6942572AE0788200F2C5A3 /* GardenView.swift in Sources */,
 				EF64B2EB2ADB1A9F00DD3B3C /* ListViewModel.swift in Sources */,
 				EF64B2D22ADB056A00DD3B3C /* todo_listApp.swift in Sources */,
 				EF64B2E12ADB05BC00DD3B3C /* ListView.swift in Sources */,
