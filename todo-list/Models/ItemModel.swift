@@ -6,7 +6,9 @@ struct ItemModel: Identifiable, Codable {
     let description: String
     let isCompleted: Bool
     let startDate: Date
+    let startTime: Date
     let endDate: Date
+    let endTime: Date
     let durationInMinutes: Int
     let createdAt: Date
     let isHabit: Bool
@@ -21,15 +23,18 @@ struct ItemModel: Identifiable, Codable {
     let organizer: String?
     let status: String?
     let tags: [String]?
-
-    init(id: String = UUID().uuidString, title: String, description: String, isCompleted: Bool, startDate: Date, endDate: Date, createdAt: Date, isHabit: Bool, location: String? = nil, attendees: [String]? = nil, recurrence: String? = nil, colorCategory: String? = nil, notes: String? = nil, priority: Int? = nil, url: URL? = nil, isAllDay: Bool, organizer: String? = nil, status: String? = nil, tags: [String]? = nil) {
+    
+    
+    init(id: String = UUID().uuidString, title: String, description: String, isCompleted: Bool, startDate: Date, startTime: Date, endDate: Date, endTime: Date, createdAt: Date, isHabit: Bool, location: String? = nil, attendees: [String]? = nil, recurrence: String? = nil, colorCategory: String? = nil, notes: String? = nil, priority: Int? = nil, url: URL? = nil, isAllDay: Bool, organizer: String? = nil, status: String? = nil, tags: [String]? = nil) {
         self.id = id
         self.title = title
         self.description = description
         self.isCompleted = isCompleted
         self.startDate = startDate
+        self.startTime = startTime
         self.endDate = endDate
-        self.durationInMinutes = Int(startDate.distance(to: endDate) / 60) // Calculate duration in minutes
+        self.endTime = endTime
+        self.durationInMinutes = 0
         self.createdAt = createdAt
         self.isHabit = isHabit
         self.location = location
@@ -44,7 +49,10 @@ struct ItemModel: Identifiable, Codable {
         self.status = status
         self.tags = tags
     }
+    
+   
 
+    
     func updateCompletion() -> ItemModel {
         return ItemModel(
             id: id,
@@ -52,7 +60,9 @@ struct ItemModel: Identifiable, Codable {
             description: description,
             isCompleted: !isCompleted,
             startDate: startDate,
+            startTime: startTime,
             endDate: endDate,
+            endTime: endTime,
             createdAt: createdAt,
             isHabit: isHabit,
             location: location,
@@ -68,6 +78,9 @@ struct ItemModel: Identifiable, Codable {
             tags: tags
         )
     }
+    
+    
+
 }
 
 let mockItem: ItemModel = ItemModel(
@@ -75,7 +88,9 @@ let mockItem: ItemModel = ItemModel(
     description: "This is a mock task",
     isCompleted: false,
     startDate: Date(),
+    startTime: Date(),
     endDate: Date().addingTimeInterval(3600), // One hour later
+    endTime: Date().addingTimeInterval(3600),
     createdAt: Date(),
     isHabit: false,
     location: "Mock Location",

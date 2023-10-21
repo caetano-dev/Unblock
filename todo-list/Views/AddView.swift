@@ -7,7 +7,9 @@ struct AddView: View {
     @State var description: String = ""
     @State var isCompleted: Bool = false
     @State var startDate = Date()
+    @State var startTime = Date()
     @State var endDate = Date()
+    @State var endTime = Date()
     @State var durationInMinutes: Int = 0
     @State var isHabit: Bool = false
     @State var location: String = ""
@@ -39,9 +41,13 @@ struct AddView: View {
                     .background(Color(UIColor.secondarySystemBackground))
                     .clipShape(.buttonBorder)
                 
-                DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                DatePicker("Starting on", selection: $startDate, displayedComponents: .date)
+                DatePicker("At", selection: $startTime,
+                           displayedComponents: .hourAndMinute)
                 
-                DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+                DatePicker("Ending on", selection: $endDate, displayedComponents: .date)
+                
+                DatePicker("At", selection: $endTime, displayedComponents: .hourAndMinute)
                 
                 Toggle("Habit", isOn: $isHabit)
                 
@@ -89,7 +95,9 @@ struct AddView: View {
                 description: description,
                 isCompleted: isCompleted,
                 startDate: startDate,
+                startTime: startTime,
                 endDate: endDate,
+                endTime: endTime,
                 createdAt: Date(),
                 isHabit: isHabit,
                 location: location,
