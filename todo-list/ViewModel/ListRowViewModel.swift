@@ -9,7 +9,43 @@ class ListRowViewModel: ObservableObject {
 
     func formattedStartDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.dateFormat = "MMM dd"
         return dateFormatter.string(from: item.startDate)
     }
+    func formattedStartHour() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:MM"
+        return dateFormatter.string(from: item.startTime)
+    }
+    func formattedEndDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd"
+        return dateFormatter.string(from: item.endDate)
+    }
+    func formattedEndHour() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:MM"
+        return dateFormatter.string(from: item.endTime)
+    }
+    func calculateEventDurationAsString() -> String {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: item.startTime, to: item.endTime)
+        
+        if let hours = components.hour, let minutes = components.minute {
+            if hours > 0 {
+                if minutes > 0 {
+                    return String(format: "%d:%d", hours, minutes)
+                } else if hours == 1 && minutes == 0{
+                    return String(format: "%d hour", hours, minutes)
+                } else {
+                    return String(format: "%d hours", hours)
+                }
+            } else {
+                return String(format: "%d minutes", minutes)
+            }
+        } else {
+            return "0 minutes"
+        }
+    }
+
 }

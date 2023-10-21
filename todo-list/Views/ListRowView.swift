@@ -26,14 +26,22 @@ struct ListRowView: View {
                 HStack{
                     Image(systemName: "calendar")
                         .font(.subheadline)
+                    Text(listRowViewModel.formattedStartHour())
+                        .font(.subheadline)
                     Text(listRowViewModel.formattedStartDate())
+                        .font(.subheadline)
+                    Text("-")
+                        .font(.subheadline)
+                    Text(listRowViewModel.formattedEndHour())
+                        .font(.subheadline)
+                    Text(listRowViewModel.formattedEndDate())
                         .font(.subheadline)
                 }
                 HStack{
                     Image(systemName: "stopwatch")
                         .font(.subheadline)
                     
-                    Text("\(item.durationInMinutes) mins")
+                    Text("\(listRowViewModel.calculateEventDurationAsString())")
                         .font(.subheadline)
                     
                 }
