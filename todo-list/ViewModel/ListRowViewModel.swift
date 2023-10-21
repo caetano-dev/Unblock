@@ -12,9 +12,9 @@ class ListRowViewModel: ObservableObject {
         dateFormatter.dateFormat = "MMM dd"
         return dateFormatter.string(from: item.startDate)
     }
-    func formattedStartHour() -> String {
+    func formattedStartTime() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
+        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: item.startTime)
     }
     func formattedEndDate() -> String {
@@ -22,9 +22,9 @@ class ListRowViewModel: ObservableObject {
         dateFormatter.dateFormat = "MMM dd"
         return dateFormatter.string(from: item.endDate)
     }
-    func formattedEndHour() -> String {
+    func formattedEndTime() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
+        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: item.endTime)
     }
     func calculateEventDurationAsString() -> String {
