@@ -8,9 +8,21 @@ struct todo_listApp: App {
         
         WindowGroup {
             NavigationStack{
-                ListView()
-            }
-            .environmentObject(listViewModel)
+                TabView {
+                    ListView()
+                        .tabItem { Label("Tasks", systemImage: "checkmark.square") }
+                    GardenView()
+                        .tabItem{
+                            Label("Garden", systemImage: "tree")
+                        }
+                    
+                }.toolbar{
+                        ToolbarItem(placement: .topBarTrailing){
+                            NavigationLink("New task", destination: AddView())
+                        }
+                    }
+                
+            }.environmentObject(listViewModel)
         }
     }
 }

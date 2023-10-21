@@ -26,15 +26,6 @@ struct ListView: View {
             }
         }
         .listStyle(PlainListStyle())
-        .navigationTitle("Todo List")
-        .toolbar{
-            ToolbarItem(placement: .topBarLeading){
-                EditButton()
-            }
-            ToolbarItem(placement: .topBarTrailing){
-                NavigationLink("Add", destination: AddView())
-            }
-        }
     }
 }
 
