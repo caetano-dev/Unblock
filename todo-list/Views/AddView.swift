@@ -112,9 +112,8 @@ struct AddView: View {
                         selectedItem = newItem
                
                 }
-                .padding(30)
                 .sheet(isPresented: $showEventEditView, content: {
-                    EventEditViewController(item: selectedItem) // this is a view, but I can't pass the item here. How do I solve this?
+                    EventEditViewController(item: selectedItem)
                 })
                 
             }
