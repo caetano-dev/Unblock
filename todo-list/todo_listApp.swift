@@ -18,7 +18,7 @@ struct todo_listApp: App {
                     
                 }.toolbar{
                         ToolbarItem(placement: .topBarTrailing){
-                            NavigationLink("New task", destination: AddView(selectedItem: mockItem))
+                            NavigationLink("New task", destination: AddView())
                         }
                     }
                 
