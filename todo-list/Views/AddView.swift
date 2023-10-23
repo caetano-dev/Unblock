@@ -7,9 +7,7 @@ struct AddView: View {
     @State var description: String = ""
     @State var isCompleted: Bool = false
     @State var startDate = Date()
-    @State var startTime = Date()
     @State var endDate = Date()
-    @State var endTime = Date()
     @State var durationInMinutes: Int = 0
     @State var isHabit: Bool = false
     @State var location: String = ""
@@ -25,6 +23,9 @@ struct AddView: View {
     @State var tags: String = ""
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
+    @State private var showEventEditView: Bool = false
+    @State var selectedItem: ItemModel
+
     
     var body: some View {
         ScrollView {
@@ -41,14 +42,15 @@ struct AddView: View {
                     .background(Color(UIColor.secondarySystemBackground))
                     .clipShape(.buttonBorder)
                 
+                
                 DatePicker("Starting on", selection: $startDate, displayedComponents: .date)
-                DatePicker("At", selection: $startTime,
-                           displayedComponents: .hourAndMinute)
+                
+                DatePicker("At", selection: $startDate, displayedComponents: .hourAndMinute)
                 
                 DatePicker("Ending on", selection: $endDate, displayedComponents: .date)
                 
-                DatePicker("At", selection: $endTime, displayedComponents: .hourAndMinute)
-                
+                DatePicker("At", selection: $endDate, displayedComponents: .hourAndMinute)
+                                
                 Toggle("Habit", isOn: $isHabit)
                 
                 TextField("Location", text: $location)
@@ -80,6 +82,41 @@ struct AddView: View {
                         .background(Color.accentColor)
                         .clipShape(.buttonBorder)
                 })
+                    Button("Add to calendar") {
+                        self.showEventEditView.toggle()
+                        print("click")
+                        let startDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: startDate)
+                        let endDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: endDate)
+
+                        let newItem = ItemModel(
+                            title: title,
+                            description: description,
+                            isCompleted: isCompleted,
+                            startDate: startDateComponents,
+                            endDate: endDateComponents,
+                            createdAt: Date(),
+                            isHabit: isHabit,
+                            location: location,
+                            attendees: attendees.components(separatedBy: ", "),
+                            recurrence: recurrence,
+                            colorCategory: colorCategory,
+                            notes: notes,
+                            priority: priority,
+                            url: URL(string: url),
+                            isAllDay: isAllDay,
+                            organizer: organizer,
+                            status: status,
+                            tags: tags.components(separatedBy: ", ")
+                        )
+
+                        selectedItem = newItem
+               
+                }
+                .padding(30)
+                .sheet(isPresented: $showEventEditView, content: {
+                    EventEditViewController(item: selectedItem) // this is a view, but I can't pass the item here. How do I solve this?
+                })
+                
             }
             .padding(14)
         }
@@ -89,15 +126,15 @@ struct AddView: View {
     
     func saveButtonPressed() {
         if textIsAppropriate() {
-            // Initialize an item with all the elements
+            let startDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: startDate)
+            let endDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: endDate)
+                       
             let newItem = ItemModel(
                 title: title,
                 description: description,
                 isCompleted: isCompleted,
-                startDate: startDate,
-                startTime: startTime,
-                endDate: endDate,
-                endTime: endTime,
+                startDate: startDateComponents,
+                endDate: endDateComponents,
                 createdAt: Date(),
                 isHabit: isHabit,
                 location: location,
@@ -131,11 +168,9 @@ struct AddView: View {
         return Alert(title: Text(alertTitle))
     }
 }
-
-    
    
 #Preview {
     NavigationView{
-        AddView()
+        AddView(selectedItem: mockItem)
     }.environmentObject(ListViewModel())
 }

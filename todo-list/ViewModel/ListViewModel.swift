@@ -30,7 +30,7 @@ class ListViewModel: ObservableObject{
     }
     
     func addItem(newItem: ItemModel) {
-        let newItem = ItemModel(title: newItem.title, description: newItem.description, isCompleted: false, startDate: newItem.startDate, startTime: newItem.startTime, endDate: newItem.endDate, endTime: newItem.endTime, createdAt: newItem.createdAt, isHabit: newItem.isHabit, location: newItem.location, attendees: newItem.attendees, recurrence: newItem.recurrence, colorCategory: newItem.colorCategory, notes: newItem.notes, priority: newItem.priority, url: newItem.url, isAllDay: newItem.isAllDay, organizer: newItem.organizer, status: newItem.status, tags: newItem.tags)
+        let newItem = ItemModel(title: newItem.title, description: newItem.description, isCompleted: false, startDate: newItem.startDate, endDate: newItem.endDate, createdAt: newItem.createdAt, isHabit: newItem.isHabit, location: newItem.location, attendees: newItem.attendees, recurrence: newItem.recurrence, colorCategory: newItem.colorCategory, notes: newItem.notes, priority: newItem.priority, url: newItem.url, isAllDay: newItem.isAllDay, organizer: newItem.organizer, status: newItem.status, tags: newItem.tags)
 
         items.append(newItem)
     }

@@ -1,51 +1,65 @@
 import Foundation
+import SwiftUI
+import EventKitUI
 
 class ListRowViewModel: ObservableObject {
     private let item: ItemModel
-
+    
     init(item: ItemModel) {
         self.item = item
     }
+}
 
-    func formattedStartDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd"
-        return dateFormatter.string(from: item.startDate)
-    }
-    func formattedStartTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: item.startTime)
-    }
-    func formattedEndDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd"
-        return dateFormatter.string(from: item.endDate)
-    }
-    func formattedEndTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: item.endTime)
-    }
-    func calculateEventDurationAsString() -> String {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour, .minute], from: item.startTime, to: item.endTime)
+
+
+struct EventEditViewController: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) var presentationMode
+    typealias UIViewControllerType = EKEventEditViewController
+    
+    
+    let item: ItemModel
+    
+    private let store = EKEventStore()
+    private var event: EKEvent {
+        let event = EKEvent(eventStore: store)
+        event.title = item.title
         
-        if let hours = components.hour, let minutes = components.minute {
-            if hours > 0 {
-                if minutes > 0 {
-                    return String(format: "%d:%d", hours, minutes)
-                } else if hours == 1 && minutes == 0{
-                    return String(format: "%d hour", hours, minutes)
-                } else {
-                    return String(format: "%d hours", hours)
-                }
-            } else {
-                return String(format: "%d minutes", minutes)
-            }
-        } else {
-            return "0 minutes"
+        // Use item.startDate and item.endDate directly without optional binding
+        let startDateComponents = DateComponents(year: item.startDate.year, month: item.startDate.month, day: item.startDate.day, hour: item.startDate.hour, minute: item.startDate.minute)
+        event.startDate = Calendar.current.date(from: startDateComponents)!
+        
+        let endDateComponents = DateComponents(year: item.endDate.year, month: item.endDate.month, day: item.endDate.day, hour: item.endDate.hour, minute: item.endDate.minute)
+        event.endDate = Calendar.current.date(from: endDateComponents)!
+        
+        event.location = item.location
+        event.notes = item.notes
+        
+        return event
+    }
+    
+    func makeUIViewController(context: Context) -> EKEventEditViewController {
+        let eventEditViewController = EKEventEditViewController()
+        eventEditViewController.event = event
+        eventEditViewController.eventStore = store
+        eventEditViewController.editViewDelegate = context.coordinator
+        return eventEditViewController
+    }
+    
+    func updateUIViewController(_ uiViewController: EKEventEditViewController, context: Context) {}
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, EKEventEditViewDelegate {
+        var parent: EventEditViewController
+        
+        init(_ controller: EventEditViewController) {
+            self.parent = controller
+        }
+        
+        func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+            parent.presentationMode.wrappedValue.dismiss()
         }
     }
-
 }

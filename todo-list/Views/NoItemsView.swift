@@ -9,7 +9,7 @@ struct NoItemsView: View {
                     .font(.title)
                     .fontWeight(.semibold)
                 Text("Click the add button to create a new todo")
-                NavigationLink(destination: AddView(),
+                NavigationLink(destination: AddView(selectedItem: mockItem),
                                label: {
                     Text("Create new todo")
                         .foregroundStyle(Color.white)
