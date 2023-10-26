@@ -31,8 +31,8 @@ struct EventEditViewController: UIViewControllerRepresentable {
         let endDateComponents = DateComponents(year: item.endDate.year, month: item.endDate.month, day: item.endDate.day, hour: item.endDate.hour, minute: item.endDate.minute)
         event.endDate = Calendar.current.date(from: endDateComponents)!
         
-        event.location = item.location
-        event.notes = item.notes
+        event.notes = item.description
+        event.isAllDay = item.isAllDay
         
         return event
     }

@@ -43,37 +43,24 @@ struct AddView: View {
                     .background(Color(UIColor.secondarySystemBackground))
                     .clipShape(.buttonBorder)
                 
-                
-                DatePicker("Starting on", selection: $startDate, displayedComponents: .date)
-                
-                DatePicker("At", selection: $startDate, displayedComponents: .hourAndMinute)
-                
-                DatePicker("Ending on", selection: $endDate, displayedComponents: .date)
-                
-                DatePicker("At", selection: $endDate, displayedComponents: .hourAndMinute)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("Start")
+                        DatePicker("", selection: $startDate, displayedComponents: .date)
+                        DatePicker("", selection: $startDate, displayedComponents: .hourAndMinute)
+                        
+                    }
+                    HStack {
+                        Text("End")
+                        DatePicker("", selection: $endDate, displayedComponents: .date)
+                        DatePicker("", selection: $endDate, displayedComponents: .hourAndMinute)
+                    }
+                }
+
                 
                 Toggle("Habit", isOn: $isHabit)
                 
-                TextField("Location", text: $location)
-                
-                TextField("Attendees", text: $attendees)
-                
-                TextField("Recurrence", text: $recurrence)
-                
-                TextField("Color Category", text: $colorCategory)
-                
-                TextField("Notes", text: $notes)
-                
-                TextField("URL", text: $url)
-                
                 Toggle("All Day Event", isOn: $isAllDay)
-                
-                TextField("Organizer", text: $organizer)
-                
-                TextField("Status", text: $status)
-                
-                TextField("Tags", text: $tags)
-                
                 
                 Button(action: saveButtonPressed) {
                     Text("Save")
@@ -139,7 +126,7 @@ struct AddView: View {
     
     private func textIsAppropriate() -> Bool {
         if title.count < minTitleLength {
-            alertTitle = "Your to-do needs to be at least \(minTitleLength) characters long."
+            alertTitle = "Title needs to be at least \(minTitleLength) characters long."
             showAlert.toggle()
             return false
         }
