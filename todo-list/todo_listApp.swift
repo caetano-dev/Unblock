@@ -18,7 +18,9 @@ struct todo_listApp: App {
                     
                 }.toolbar{
                         ToolbarItem(placement: .topBarTrailing){
-                            NavigationLink("New task", destination: AddView())
+                            NavigationLink(destination: AddView()){
+                                Image(systemName: "plus.circle")
+                            }
                         }
                     }
                 
